@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikki's NY Shop · 紐約直送精選代購</title>
+  <meta name="description" content="紐約直送・正品代購・由 Nikki 親自從美國品牌官網與百貨為您挑選好物" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f9f4ef;
+      --headline: #020826;
+      --paragraph: #716040;
+      --button: #8c7851;
+      --button-text: #fffffe;
+      --main: #fffffe;
+      --secondary: #eaddcf;
+      --tertiary: #f25042;
+      --tertiary-soft: #f9d9d2;
+      --cream-deep: #ddc9b0;
+      --font-display: 'Quicksand', 'Noto Sans TC', sans-serif;
+      --font-body: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--paragraph);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .announcement {
+      background: var(--button);
+      color: var(--main);
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .announcement .live-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--tertiary);
+      animation: pulse 1.5s ease-in-out infinite;
+      margin-right: 6px;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .header {
+      background: var(--main);
+      border-bottom: 1px solid var(--secondary);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--headline);
+      text-decoration: none;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .logo small {
+      display: block;
+      font-style: normal;
+      font-family: var(--font-body);
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      color: var(--paragraph);
+      margin-top: 4px;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-menu a {
+      color: var(--paragraph);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-menu a:hover { color: var(--tertiary); }
+    .nav-menu .live { color: var(--tertiary); font-weight: 600; }
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+    }
+
+    .hero {
+      padding: 80px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--tertiary-soft) 0%, transparent 70%);
+      opacity: 0.8;
+      z-index: 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -150px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+      opacity: 0.6;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: var(--paragraph);
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--tertiary);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 1.05;
+      color: var(--headline);
+      margin-bottom: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .italic {
+      font-weight: 700;
+      color: var(--tertiary);
+    }
+    .hero h1 .accent { font-weight: 700; }
+    .hero p {
+      font-size: 17px;
+      color: var(--paragraph);
+      max-width: 560px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 16px 36px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-body);
+    }
+    .btn-primary {
+      background: var(--tertiary);
+      color: var(--button-text);
+    }
+    .btn-primary:hover {
+      background: #d83a2c;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(242, 80, 66, 0.3);
+    }
+    .btn-secondary {
+      background: var(--button);
+      color: var(--button-text);
+    }
+    .btn-secondary:hover {
+      background: #6f5e3f;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(140, 120, 81, 0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--headline);
+      border: 1px solid var(--button);
+    }
+    .btn-outline:hover {
+      background: var(--button);
+      color: var(--main);
+    }
+
+    .stats {
+      background: var(--secondary);
+      padding: 40px 0;
+      margin-top: 60px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--cream-deep);
+    }
+    .stat {
+      background: var(--secondary);
+      padding: 24px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 38px;
+      color: var(--tertiary);
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--button);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    section { padding: 100px 0; }
+    .section-tag {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: var(--tertiary);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 56px);
+      color: var(--headline);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .section-title .italic {
+      font-weight: 700;
+      color: var(--tertiary);
+    }
+    .section-subtitle {
+      color: var(--paragraph);
+      font-size: 16px;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .groupbuy-section {
+      background: var(--main);
+      position: relative;
+    }
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--tertiary);
+      color: var(--main);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .live-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--main);
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    .groupbuy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1024px) {
+      .groupbuy-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .groupbuy-grid { grid-template-columns: 1fr; }
+    }
+    .groupbuy-card {
+      background: var(--bg);
+      border: 1px solid var(--secondary);
+      overflow: hidden;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+    }
+    .groupbuy-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--tertiary);
+      box-shadow: 0 20px 40px rgba(140, 120, 81, 0.15);
+    }
+    .groupbuy-image {
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--secondary), var(--cream-deep));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .groupbuy-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--tertiary);
+      color: var(--main);
+      padding: 4px 10px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+    .groupbuy-countdown {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--button);
+      color: var(--main);
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .groupbuy-info { padding: 24px; }
+    .groupbuy-title {
+      color: var(--headline);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .groupbuy-price {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .price-now {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--tertiary);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .price-old {
+      font-size: 14px;
+      color: var(--paragraph);
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    .groupbuy-meta {
+      font-size: 13px;
+      color: var(--paragraph);
+      margin-bottom: 0;
+      padding-top: 12px;
+      border-top: 1px solid var(--secondary);
+      display: flex;
+      justify-content: space-between;
+    }
+    .groupbuy-meta .joined {
+      color: var(--tertiary);
+      font-weight: 600;
+    }
+
+    .quick-actions { background: var(--bg); }
+    .actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--cream-deep);
+      border: 1px solid var(--cream-deep);
+    }
+    @media (max-width: 768px) {
+      .actions-grid { grid-template-columns: 1fr; }
+    }
+    .action-card {
+      padding: 60px 48px;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+    }
+    .action-card.brown {
+      background: var(--button);
+      color: var(--main);
+    }
+    .action-card.cream {
+      background: var(--main);
+      color: var(--headline);
+    }
+    .action-card:hover {
+      background: var(--tertiary);
+      color: var(--main);
+    }
+    .action-card .icon-bg {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 120px;
+      opacity: 0.12;
+      transition: transform 0.5s;
+    }
+    .action-card:hover .icon-bg {
+      transform: scale(1.1) rotate(-10deg);
+      opacity: 0.18;
+    }
+    .action-card .tag {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      opacity: 0.8;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .action-card h3 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .action-card h3 .italic { font-weight: 700; }
+    .action-card p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .action-card .arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: gap 0.3s;
+    }
+    .action-card:hover .arrow { gap: 20px; }
+
+    .brands-section {
+      background: var(--secondary);
+      color: var(--headline);
+      padding: 80px 0;
+      overflow: hidden;
+    }
+    .brands-section .section-tag { color: var(--tertiary); }
+    .brands-section .section-title { color: var(--headline); }
+    .brands-section .section-subtitle { color: var(--paragraph); }
+    .marquee {
+      display: flex;
+      gap: 16px;
+      margin-top: 50px;
+      animation: scroll 50s linear infinite;
+      width: max-content;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .brand-item {
+      padding: 18px 32px;
+      border: 1px solid var(--cream-deep);
+      background: var(--main);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--button);
+      white-space: nowrap;
+      flex-shrink: 0;
+      letter-spacing: 0.02em;
+    }
+
+    footer {
+      background: var(--button);
+      color: var(--secondary);
+      padding: 60px 0 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    .footer-brand h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 36px;
+      color: var(--main);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .footer-brand .tag {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--secondary);
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      max-width: 400px;
+      line-height: 1.7;
+      color: var(--secondary);
+    }
+    .footer-col h5 {
+      color: var(--main);
+      font-size: 14px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--tertiary-soft); }
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 254, 0.15);
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--secondary);
+      opacity: 0.85;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content > * { animation: fadeUp 0.8s ease-out backwards; }
+    .hero-tag { animation-delay: 0.1s; }
+    .hero h1 { animation-delay: 0.2s; }
+    .hero p { animation-delay: 0.4s; }
+    .hero-buttons { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+
+  <div class="announcement">
+    <span><span class="live-dot"></span>本月開團中・限時優惠</span>
+    <span style="opacity: 0.5">|</span>
+    <span>🔥 新客滿 NT$4,000 免運</span>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#" class="logo">
+          <span>Nikki's</span>
+          <small>NEW YORK SHOP</small>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#groupbuy" class="live">● 開團中</a></li>
+          <li><a href="#quote">我要詢價</a></li>
+          <li><a href="#brands">品牌</a></li>
+          <li><a href="#about">關於</a></li>
+          <li><a href="#contact" class="btn btn-outline" style="padding: 8px 20px; font-size: 13px;">私訊 Nikki</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">紐約直送・正品代購</div>
+        <h1>
+          來自 <span class="italic">紐約</span><br/>
+          的精選 <span class="accent">代購</span>
+        </h1>
+        <p>由 Nikki 親自從美國品牌官網與百貨為您挑選正品好物。FedEx 空運直送・滿 NT$4,000 免運費・正品保證。</p>
+        <div class="hero-buttons">
+          <a href="#groupbuy" class="btn btn-primary">
+            🔥 看本月開團
+            <span>→</span>
+          </a>
+          <a href="#quote" class="btn btn-secondary">
+            我要詢價代購
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">正品保證</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">$4000</div>
+          <div class="stat-label">滿額免運</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">FedEx</div>
+          <div class="stat-label">空運直送</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">21-28</div>
+          <div class="stat-label">天可收件</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="groupbuy-section" id="groupbuy">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="live-badge">
+            <span class="dot"></span>
+            開團中・LIVE
+          </div>
+          <h2 class="section-title">本月 <span class="italic">開團</span></h2>
+          <p class="section-subtitle">Nikki 嚴選紐約特價・喜歡就直接 +1 下單<br/>新客人請先匯款再下單</p>
+        </div>
+        <a href="#" class="btn btn-outline">
+          看全部開團 →
+        </a>
+      </div>
+
+      <div class="groupbuy-grid">
+        <div class="groupbuy-card">
+          <div class="groupbuy-image">
+            👟
+            <div class="groupbuy-tag">🔥 熱賣</div>
+            <div class="groupbuy-countdown">⏰ 剩 5 天</div>
+          </div>
+          <div class="groupbuy-info">
+            <h3 class="groupbuy-title">Nike Air Jordan 4 RM | 男生款</h3>
+            <div class="groupbuy-price">
+              <span class="price-now">NT$4,500</span>
+              <span class="price-old">NT$5,500</span>
+            </div>
+            <p style="font-size: 13px; color: var(--paragraph);">含運|含關稅|含郵資|不含鞋盒</p>
+            <div class="groupbuy-meta">
+              <span class="joined">🔥 12 人已下單</span>
+              <span>立即查看 →</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="groupbuy-card">
+          <div class="groupbuy-image">
+            👜
+            <div class="groupbuy-tag">限量</div>
+            <div class="groupbuy-countdown">⏰ 剩 3 天</div>
+          </div>
+          <div class="groupbuy-info">
+            <h3 class="groupbuy-title">COACH Tabby 翻蓋包・26</h3>
+            <div class="groupbuy-price">
+              <span class="price-now">NT$8,800</span>
+              <span class="price-old">NT$12,000</span>
+            </div>
+            <p style="font-size: 13px; color: var(--paragraph);">含運|含關稅|含郵資</p>
+            <div class="groupbuy-meta">
+              <span class="joined">🔥 8 人已下單</span>
+              <span>立即查看 →</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="groupbuy-card">
+          <div class="groupbuy-image">
+            🧴
+            <div class="groupbuy-tag">必搶</div>
+            <div class="groupbuy-countdown">⏰ 剩 7 天</div>
+          </div>
+          <div class="groupbuy-info">
+            <h3 class="groupbuy-title">Estée Lauder 小棕瓶 100ml</h3>
+            <div class="groupbuy-price">
+              <span class="price-now">NT$3,180</span>
+              <span class="price-old">NT$4,500</span>
+            </div>
+            <p style="font-size: 13px; color: var(--paragraph);">含運|含關稅|附專櫃禮品</p>
+            <div class="groupbuy-meta">
+              <span class="joined">🔥 24 人已下單</span>
+              <span>立即查看 →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quick-actions" id="quote">
+    <div class="container">
+      <div class="actions-grid">
+        <a href="#" class="action-card brown">
+          <div class="icon-bg">💬</div>
+          <div class="tag">— 主要服務</div>
+          <h3>我要 <span class="italic">詢價代購</span></h3>
+          <p>看到喜歡的美國商品?提供商品連結 + 圖片 + 尺寸顏色,<br/>Nikki 24 小時內為您報價</p>
+          <span class="arrow">立即填單詢價 →</span>
+        </a>
+
+        <a href="#" class="action-card cream">
+          <div class="icon-bg">🏷️</div>
+          <div class="tag">— 跑單品 / 多買品</div>
+          <h3>現貨 <span class="italic">下殺出清</span></h3>
+          <p>Nikki 多買的好物 / 客人跑單品<br/>限量現貨・直接下單最快取得</p>
+          <span class="arrow">看現貨商品 →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="brands-section" id="brands">
+    <div class="container">
+      <div class="section-tag">— 美國品牌</div>
+      <h2 class="section-title">40+ <span class="italic">美國</span> 品牌</h2>
+      <p class="section-subtitle">從紐約 SOHO 街頭到百貨精品,所有美國品牌皆可代購</p>
+    </div>
+    <div class="marquee">
+      <span class="brand-item">Nike</span>
+      <span class="brand-item">COACH</span>
+      <span class="brand-item">Tory Burch</span>
+      <span class="brand-item">Tumi</span>
+      <span class="brand-item">UGG</span>
+      <span class="brand-item">Estée Lauder</span>
+      <span class="brand-item">Ralph Lauren</span>
+      <span class="brand-item">Free People</span>
+      <span class="brand-item">Madewell</span>
+      <span class="brand-item">New Balance</span>
+      <span class="brand-item">Marc Jacobs</span>
+      <span class="brand-item">Tiffany & Co</span>
+      <span class="brand-item">Nike</span>
+      <span class="brand-item">COACH</span>
+      <span class="brand-item">Tory Burch</span>
+      <span class="brand-item">Tumi</span>
+      <span class="brand-item">UGG</span>
+      <span class="brand-item">Estée Lauder</span>
+      <span class="brand-item">Ralph Lauren</span>
+      <span class="brand-item">Free People</span>
+      <span class="brand-item">Madewell</span>
+      <span class="brand-item">New Balance</span>
+      <span class="brand-item">Marc Jacobs</span>
+      <span class="brand-item">Tiffany & Co</span>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Nikki's</h4>
+          <div class="tag">NEW YORK SHOP</div>
+          <p>紐約直送精選代購・FedEx 空運・滿 NT$4,000 免台灣郵資・正品保證</p>
+        </div>
+        <div class="footer-col">
+          <h5>購物</h5>
+          <ul>
+            <li><a href="#groupbuy">開團中</a></li>
+            <li><a href="#quote">我要詢價</a></li>
+            <li><a href="#">代購試算</a></li>
+            <li><a href="#">運費說明</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>聯絡</h5>
+          <ul>
+            <li><a href="https://m.me/hsiaoliliu" target="_blank">私訊 Nikki</a></li>
+            <li><a href="https://www.facebook.com/nikkinyshop/" target="_blank">FB 粉專</a></li>
+            <li><a href="#">代購規則</a></li>
+            <li><a href="#">查訂單</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Nikki's NY Shop · 版權所有</span>
+        <span>紐約精選 · 台灣直送</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
