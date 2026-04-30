@@ -163,9 +163,58 @@ git push                # 推到 GitHub
 | 2026-04-30 早 | 完成首頁 v1（深藍黑配色） |
 | 2026-04-30 早 | v2：移除深色背景 |
 | 2026-04-30 早 | v3：字體換成 Quicksand 圓圓體 ✨ |
+| 2026-04-30 下午 | 靜態網站部署上線 nikkisny.shop（Vercel + Porkbun DNS）✅ |
+| 2026-04-30 下午 | 啟動 Django 後台系統（nikkisny-django 資料夾）|
+| 2026-04-30 下午 | 完成 Django 6 個 App 架構 + Migration |
+| 2026-04-30 下午 | orders/models.py：9段訂單狀態 + 物流追蹤 ✅ |
+| 2026-04-30 下午 | products/models.py：開團/現貨/詢價商品模型 ✅ |
+| 2026-04-30 下午 | notifications/service.py：LINE Notify 全流程通知 ✅ |
+| 2026-04-30 下午 | orders/admin.py：後台一鍵更新狀態 + 自動 LINE 通知 ✅ |
+| 2026-04-30 下午 | accounts/models.py：UserProfile + LINE token 綁定 ✅ |
+| 2026-04-30 下午 | products/admin.py：一鍵發布到 FB 社團 + LINE 廣播 ✅ |
+| 2026-04-30 下午 | publishing/service.py：FB Graph API + LINE Messaging ✅ |
+| 2026-04-30 下午 | accounts/views.py：登入/註冊/個人頁 ✅ |
+| 2026-04-30 下午 | Django system check 零錯誤 ✅ |
+
+---
+
+## 🐍 Django 後台系統架構（nikkisny-django）
+
+### ✅ 已完成的模組
+| 檔案 | 功能 |
+|------|------|
+| `orders/models.py` | 訂單模型（9 段狀態 + 物流追蹤）|
+| `orders/admin.py` | 後台一鍵改狀態 + 自動 LINE 通知 |
+| `products/models.py` | 商品模型（開團/現貨/詢價）|
+| `products/admin.py` | 後台一鍵發布到 FB + LINE |
+| `notifications/service.py` | LINE Notify 通知（全 9 種模板）|
+| `publishing/service.py` | FB Graph API + LINE Messaging API |
+| `accounts/models.py` | UserProfile（LINE token + 客戶類型）|
+| `accounts/admin.py` | 後台客戶管理（顯示 LINE 綁定狀態）|
+| `accounts/views.py` | 前台登入/註冊/個人頁 |
+
+### 🚧 下一步（Django 繼續）
+- [ ] `products/views.py` — 商品列表頁、開團詳細頁
+- [ ] `products/urls.py` — 商品 URL 路由
+- [ ] 購物車 `cart` app — 加入購物車、查看購物車
+- [ ] 結帳頁 `orders/views.py` — 填寫收件資訊 + 顯示匯款帳號
+- [ ] `inquiry/models.py` — 詢價單模型
+- [ ] 前台 templates（套用 nikkisny.shop 設計風格）
+- [ ] Railway 部署設定（Procfile + railway.json）
+- [ ] 切換 nikkisny.shop DNS → Railway
+
+### 🔑 需要設定的 API Keys（在 .env 裡）
+| 變數 | 用途 | 去哪拿 |
+|------|------|--------|
+| `NIKKI_LINE_NOTIFY_TOKEN` | Nikki 自己收新訂單通知 | notify.line.me |
+| `LINE_CHANNEL_ACCESS_TOKEN` | 廣播給所有 LINE 追蹤者 | LINE Developers |
+| `FACEBOOK_PAGE_ACCESS_TOKEN` | 發文到 FB 社團 | Meta for Developers |
+| `FACEBOOK_GROUP_ID` | FB 社團 ID | FB 社團網址的數字 |
+| `BANK_ACCOUNT_NAME` | 匯款通知顯示戶名 | 你的帳戶 |
+| `BANK_ACCOUNT_NUMBER` | 匯款通知顯示帳號 | 你的帳戶 |
 
 ---
 
 ## 🎯 下一個里程碑
 
-**今天讓 nikkisny.shop 上線！** 🚀
+**讓 Django 後台可以跑 + 部署到 Railway！** 🚀
